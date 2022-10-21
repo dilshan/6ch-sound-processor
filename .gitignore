@@ -32,5 +32,4 @@ fp-info-cache
 *.ses
 
 # BOM files
-*.xml
 *.csv

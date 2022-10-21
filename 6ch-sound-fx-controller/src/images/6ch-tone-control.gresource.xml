@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+    <gresource prefix="/com/dilshan/6chafx">
+        <!-- Application icon from https://www.flaticon.com/free-icons/loud-speaker. -->
+        <!-- Loud speaker icons created by Freepik - Flaticon -->
+        <file alias="appicon">6ch-tone-control.png</file>
+    </gresource>
+</gresources>
