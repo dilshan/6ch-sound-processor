@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "main.h": "c",
+        "stdio.h": "c",
+        "logger.h": "c",
+        "termios.h": "c",
+        "common.h": "c",
+        "devcnt.h": "c",
+        "gtk.h": "c",
+        "guidef.h": "c"
+    }
+}

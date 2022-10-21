@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 
+
+The MIT License (MIT)
+
+Copyright (c) 2021 Dilshan R Jayakody
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+Author: Dilshan R Jayakody
+
+-->
+<interface>
+  <requires lib="gtk+" version="3.20"/>
+  <!-- interface-license-type mit -->
+  <!-- interface-name 6 Channel Tone Control System -->
+  <!-- interface-copyright 2021 Dilshan R Jayakody -->
+  <!-- interface-authors Dilshan R Jayakody -->
+  <object class="GtkAdjustment" id="adjBass">
+    <property name="upper">15</property>
+    <property name="value">8</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">1</property>
+    <signal name="value-changed" handler="on_adjTone_value_changed" object="scaleBass" swapped="no"/>
+  </object>
+  <object class="GtkAdjustment" id="adjMid">
+    <property name="upper">15</property>
+    <property name="value">8</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">1</property>
+    <signal name="value-changed" handler="on_adjTone_value_changed" object="scaleMid" swapped="no"/>
+  </object>
+  <object class="GtkAdjustment" id="adjTreble">
+    <property name="upper">15</property>
+    <property name="value">8</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">1</property>
+    <signal name="value-changed" handler="on_adjTone_value_changed" object="scaleTreble" swapped="no"/>
+  </object>
+  <object class="GtkAdjustment" id="adjTrimCenter">
+    <property name="upper">15</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">1</property>
+    <signal name="value-changed" handler="on_adjTrimSubChannel_value_changed" object="scaleCenVolume" swapped="no"/>
+  </object>
+  <object class="GtkAdjustment" id="adjTrimFL">
+    <property name="upper">15</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">1</property>
+    <signal name="value-changed" handler="on_adjTrimSubChannel_value_changed" object="scaleFLVolume" swapped="no"/>
+  </object>
+  <object class="GtkAdjustment" id="adjTrimFR">
+    <property name="upper">15</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">1</property>
+    <signal name="value-changed" handler="on_adjTrimSubChannel_value_changed" object="scaleFRVolume" swapped="no"/>
+  </object>
+  <object class="GtkAdjustment" id="adjTrimMaster">
+    <property name="upper">79</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">1</property>
+    <signal name="value-changed" handler="on_adjTrimMaster_value_changed" object="scaleMasterVol" swapped="no"/>
+  </object>
+  <object class="GtkAdjustment" id="adjTrimRL">
+    <property name="upper">15</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">1</property>
+    <signal name="value-changed" handler="on_adjTrimSubChannel_value_changed" object="scaleRLVolume" swapped="no"/>
+  </object>
+  <object class="GtkAdjustment" id="adjTrimRR">
+    <property name="upper">15</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">1</property>
+    <signal name="value-changed" handler="on_adjTrimSubChannel_value_changed" object="scaleRRVolume" swapped="no"/>
+  </object>
+  <object class="GtkAdjustment" id="adjTrimSub">
+    <property name="upper">15</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">1</property>
+    <signal name="value-changed" handler="on_adjTrimSubChannel_value_changed" object="scaleSubVolume" swapped="no"/>
+  </object>
+  <object class="GtkApplicationWindow" id="appwinMain">
+    <property name="can-focus">False</property>
+    <property name="resizable">False</property>
+    <property name="window-position">center</property>
+    <signal name="destroy" handler="on_appwinMain_destroy" swapped="no"/>
+    <child>
+      <!-- n-columns=1 n-rows=3 -->
+      <object class="GtkGrid" id="grdMain">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="margin-left">7</property>
+        <property name="margin-right">7</property>
+        <child>
+          <!-- n-columns=5 n-rows=1 -->
+          <object class="GtkGrid" id="grdSerial">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="margin-top">7</property>
+            <property name="margin-bottom">7</property>
+            <property name="column-spacing">7</property>
+            <child>
+              <object class="GtkLabel" id="lblSerialIntf">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="margin-top">7</property>
+                <property name="margin-bottom">7</property>
+                <property name="label" translatable="yes">Serial interface:</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="txtSerialFile">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="hexpand">True</property>
+                <signal name="activate" handler="on_txtSerialFile_activate" swapped="no"/>
+              </object>
+              <packing>
+                <property name="left-attach">2</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnConnect">
+                <property name="label" translatable="yes">Connect</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="can-default">True</property>
+                <property name="receives-default">True</property>
+                <signal name="pressed" handler="on_btnConnect_pressed" swapped="no"/>
+              </object>
+              <packing>
+                <property name="left-attach">4</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="left-attach">0</property>
+            <property name="top-attach">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSeparator" id="sepMain">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="margin-bottom">5</property>
+          </object>
+          <packing>
+            <property name="left-attach">0</property>
+            <property name="top-attach">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkNotebook" id="grpMainTab">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="margin-bottom">7</property>
+            <child>
+              <!-- n-columns=2 n-rows=7 -->
+              <object class="GtkGrid" id="grdVolume">
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can-focus">False</property>
+                <property name="column-spacing">7</property>
+                <child>
+                  <object class="GtkLabel" id="lblMasterVolume">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin-left">7</property>
+                    <property name="margin-right">7</property>
+                    <property name="margin-top">7</property>
+                    <property name="margin-bottom">7</property>
+                    <property name="label" translatable="yes">Master volume:</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lblFLVolume">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin-left">7</property>
+                    <property name="margin-right">7</property>
+                    <property name="margin-top">7</property>
+                    <property name="margin-bottom">7</property>
+                    <property name="label" translatable="yes">Front left volume:</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lblFRVolume">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin-left">7</property>
+                    <property name="margin-right">7</property>
+                    <property name="margin-top">7</property>
+                    <property name="margin-bottom">7</property>
+                    <property name="label" translatable="yes">Front right volume:</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lblRLVolume">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin-left">7</property>
+                    <property name="margin-right">7</property>
+                    <property name="margin-top">7</property>
+                    <property name="margin-bottom">7</property>
+                    <property name="label" translatable="yes">Rear left volume:</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lblRRVolume">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin-left">7</property>
+                    <property name="margin-right">7</property>
+                    <property name="margin-top">7</property>
+                    <property name="margin-bottom">7</property>
+                    <property name="label" translatable="yes">Rear right volume:</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lblSubVolume">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin-left">7</property>
+                    <property name="margin-right">7</property>
+                    <property name="margin-top">7</property>
+                    <property name="margin-bottom">7</property>
+                    <property name="label" translatable="yes">Subwoofer volume:</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">6</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lblCenterVolume">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin-left">7</property>
+                    <property name="margin-right">7</property>
+                    <property name="margin-top">7</property>
+                    <property name="margin-bottom">7</property>
+                    <property name="label" translatable="yes">Center volume:</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScale" id="scaleFLVolume">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="adjustment">adjTrimFL</property>
+                    <property name="digits">0</property>
+                    <property name="draw-value">False</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">1</property>
+                    <property name="top-attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScale" id="scaleRLVolume">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="adjustment">adjTrimRL</property>
+                    <property name="digits">0</property>
+                    <property name="draw-value">False</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">1</property>
+                    <property name="top-attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScale" id="scaleFRVolume">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="adjustment">adjTrimFR</property>
+                    <property name="digits">0</property>
+                    <property name="draw-value">False</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">1</property>
+                    <property name="top-attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScale" id="scaleRRVolume">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="adjustment">adjTrimRR</property>
+                    <property name="digits">0</property>
+                    <property name="draw-value">False</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">1</property>
+                    <property name="top-attach">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScale" id="scaleCenVolume">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="adjustment">adjTrimCenter</property>
+                    <property name="digits">0</property>
+                    <property name="draw-value">False</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">1</property>
+                    <property name="top-attach">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScale" id="scaleSubVolume">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="adjustment">adjTrimSub</property>
+                    <property name="digits">0</property>
+                    <property name="draw-value">False</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">1</property>
+                    <property name="top-attach">6</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScale" id="scaleMasterVol">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="adjustment">adjTrimMaster</property>
+                    <property name="round-digits">1</property>
+                    <property name="digits">0</property>
+                    <property name="draw-value">False</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">1</property>
+                    <property name="top-attach">0</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel" id="lblVolume">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Volume</property>
+              </object>
+              <packing>
+                <property name="tab-fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <!-- n-columns=3 n-rows=6 -->
+              <object class="GtkGrid" id="grdTone">
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can-focus">False</property>
+                <property name="column-spacing">7</property>
+                <child>
+                  <object class="GtkLabel" id="lblBass">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin-left">7</property>
+                    <property name="margin-right">7</property>
+                    <property name="margin-top">7</property>
+                    <property name="margin-bottom">7</property>
+                    <property name="label" translatable="yes">Bass:</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lblMid">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin-left">7</property>
+                    <property name="margin-right">7</property>
+                    <property name="margin-top">7</property>
+                    <property name="margin-bottom">7</property>
+                    <property name="label" translatable="yes">Middle:</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lblTreble">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin-left">7</property>
+                    <property name="margin-right">7</property>
+                    <property name="margin-top">7</property>
+                    <property name="margin-bottom">7</property>
+                    <property name="label" translatable="yes">Treble:</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lbl3d">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin-left">7</property>
+                    <property name="margin-right">7</property>
+                    <property name="margin-top">7</property>
+                    <property name="margin-bottom">7</property>
+                    <property name="label" translatable="yes">3D sound effect:</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lblToneCnt">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin-left">7</property>
+                    <property name="margin-right">7</property>
+                    <property name="margin-top">7</property>
+                    <property name="margin-bottom">7</property>
+                    <property name="label" translatable="yes">Tone control:</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScale" id="scaleBass">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="adjustment">adjBass</property>
+                    <property name="digits">0</property>
+                    <property name="draw-value">False</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">1</property>
+                    <property name="top-attach">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScale" id="scaleMid">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="adjustment">adjMid</property>
+                    <property name="digits">0</property>
+                    <property name="draw-value">False</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">1</property>
+                    <property name="top-attach">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkScale" id="scaleTreble">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="vexpand">True</property>
+                    <property name="adjustment">adjTreble</property>
+                    <property name="digits">0</property>
+                    <property name="draw-value">False</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">1</property>
+                    <property name="top-attach">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="chkTone">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">False</property>
+                    <property name="margin-left">7</property>
+                    <property name="margin-right">7</property>
+                    <property name="margin-top">3</property>
+                    <property name="margin-bottom">3</property>
+                    <property name="draw-indicator">True</property>
+                    <signal name="toggled" handler="on_chkTone_toggled" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left-attach">1</property>
+                    <property name="top-attach">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="chk3d">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">False</property>
+                    <property name="margin-left">7</property>
+                    <property name="margin-right">7</property>
+                    <property name="margin-top">3</property>
+                    <property name="margin-bottom">3</property>
+                    <property name="draw-indicator">True</property>
+                    <signal name="toggled" handler="on_chk3d_toggled" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left-attach">1</property>
+                    <property name="top-attach">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="lblSpacer1">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="margin-top">56</property>
+                  </object>
+                  <packing>
+                    <property name="left-attach">0</property>
+                    <property name="top-attach">5</property>
+                  </packing>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel" id="lblTone">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Tone</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+                <property name="tab-fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child type="tab">
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="left-attach">0</property>
+            <property name="top-attach">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
