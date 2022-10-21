@@ -6,7 +6,7 @@
 .vscode/ipch
 
 # GCC/GTK
-6ch-tone-control
+/6ch-sound-fx-controller/6ch-tone-control
 
 *.o
 *.glade~
