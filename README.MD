@@ -1,3 +1,4 @@
+
 # 5.1 channel analog audio processor
 
 This project is a 5.1-channel, USB analog audio processor based on *PT2322* and [Arduino Nano](https://store.arduino.cc/products/arduino-nano).
@@ -20,7 +21,9 @@ The PCB of this module can directly order from the [pcbway.com](https://www.pcbw
 
 All the required components to assemble this module are in the BOM file at [here](https://github.com/dilshan/6ch-sound-processor/tree/main/kicad-design/6ch-sound-fx-proc-bom.pdf).
 
-The entire assembly process of this module is shown in the project video.
+The entire assembly process of this module is shown in the below video:
+
+[![5.1 Channel Audio Processor](https://i3.ytimg.com/vi/wblaniLDYwU/maxresdefault.jpg)](https://youtu.be/wblaniLDYwU)
 
 ## Compiling source codes
 
@@ -35,4 +38,3 @@ $ git clone git@github.com:dilshan/6ch-sound-processor.git
 $ cd 6ch-sound-processor/6ch-sound-fx-controller/
 $ make
 ```
-
