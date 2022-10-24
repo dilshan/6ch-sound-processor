@@ -98,6 +98,7 @@ void updateState(int *fileHandle, enum ControlID cID, audioSettings *defaultLvl,
             newLevel = currentLvl->is3DDisable;
             break;
         default:
+            ;
     }
 
     newLevelChr = newLevel ? 0x01 : 0x00;
@@ -174,6 +175,7 @@ void updateLevel(int *fileHandle, enum ControlID cID, audioSettings *defaultLvl,
             newLevel = currentLvl->toneSettings.treble;
             break;
         default:
+            ;
     }
 
     if(*lastLevel != newLevel)
@@ -266,6 +268,7 @@ gboolean getControlLevel(int *fileHandle, enum ControlID cID, unsigned char *val
             controlCmd = CNT_GET_TONE;
             break;
         default:
+            ;
     }
 
     if(controlCmd != NULL)

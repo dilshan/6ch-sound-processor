@@ -35,6 +35,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <termios.h>
+#include <errno.h>
 
 audioSettings audioData;
 commInfo commInfoData;
@@ -346,6 +347,7 @@ void trimLevelChangedOnDev(enum ControlID cID, unsigned char newLevel)
             adjControl = mainWindow.trimSubwoofer;
             break;
         default:
+            ;
     }
 
     if(adjControl != NULL)
@@ -370,6 +372,7 @@ void toneLevelChangedOnDev(enum ControlID cID, unsigned char newLevel)
             adjControl = mainWindow.toneTreble;
             break;
         default:
+            ;
     }
 
     if(adjControl != NULL)
