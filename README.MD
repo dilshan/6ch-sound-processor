@@ -17,7 +17,7 @@ This audio processing module is an open-source hardware project. All the design 
 
 ## Assembling the module
 
-The PCB of this module can directly order from the [pcbway.com](https://www.pcbway.com/) project page. Also, the latest Gerber files of this module are available in the [release](https://github.com/dilshan/6ch-sound-processor/releases) section of this repository.
+The PCB of this module can directly order from the [PCBWay project page](https://www.pcbway.com/project/shareproject/5_1_channel_analog_audio_processor_231ad745.html). Also, the latest Gerber files of this module are available in the [release](https://github.com/dilshan/6ch-sound-processor/releases) section of this repository.
 
 All the required components to assemble this module are in the BOM file at [here](https://github.com/dilshan/6ch-sound-processor/tree/main/kicad-design/6ch-sound-fx-proc-bom.pdf).
 
