@@ -307,7 +307,7 @@ void on_btnConnect_pressed(GtkButton *button, gpointer user_data)
 
     // Reactivate input controls.
     gtk_widget_set_sensitive(GTK_WIDGET(button), TRUE);
-    gtk_widget_set_sensitive(GTK_WIDGET(mainWindow.txtSerialFile), FALSE);
+    gtk_widget_set_sensitive(GTK_WIDGET(mainWindow.txtSerialFile), TRUE);
     gtk_editable_set_editable(GTK_EDITABLE(mainWindow.txtSerialFile), TRUE);
 }
 
