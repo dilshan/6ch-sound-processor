@@ -1,7 +1,7 @@
 
 # 5.1 channel analog audio processor
 
-This project is a 5.1-channel, USB analog audio processor based on *PT2322* and [Arduino Nano](https://store.arduino.cc/products/arduino-nano).
+This project is a 5.1-channel, analog audio processor based on *PT2322* and [Arduino Nano](https://store.arduino.cc/products/arduino-nano).
 
 ![Finished 5.1-channel analog audio processor board.](https://raw.githubusercontent.com/dilshan/6ch-sound-processor/main/resources/6ch-afx-board.jpg)
 
